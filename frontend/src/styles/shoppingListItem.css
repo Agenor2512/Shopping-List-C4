@@ -30,3 +30,9 @@
   width: 20px;
   height: 20px;
 }
+
+@media screen and (min-width: 600px) {
+  .item-container > .item-card {
+    width: 30vw;
+  }
+}
