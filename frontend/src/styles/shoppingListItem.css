@@ -1,0 +1,38 @@
+.item-container {
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  font-family: var(--primary-font);
+  color: var(--primary-color);
+}
+
+.item-container > .item-card {
+  width: 90vw;
+  height: 12vh;
+  padding: 1rem;
+  border-radius: 22px;
+  box-shadow: 3px 3px 25px 3px lightgray;
+}
+
+.item-container > .item-card > section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.item-container > .item-card > section.card-header > button {
+  background: none;
+  border: 0;
+}
+
+.item-container > .item-card > section.card-header > button > img {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (min-width: 600px) {
+  .item-container > .item-card {
+    width: 30vw;
+  }
+}
