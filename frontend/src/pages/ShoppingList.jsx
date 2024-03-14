@@ -1,10 +1,18 @@
 import ShoppingListItem from "../components/ShoppingListItem";
 
+import "../styles/shoppingList.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 function ShoppingList() {
   return (
-    <div>
-      <ShoppingListItem />
-    </div>
+    <>
+      <Header />
+      <main>
+        <ShoppingListItem />
+      </main>
+      <Footer />
+    </>
   );
 }
 

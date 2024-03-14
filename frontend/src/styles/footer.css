@@ -1,0 +1,22 @@
+.footer-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+  padding: 1rem;
+}
+
+.footer-container > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17vw;
+  height: 7.5vh;
+  border: 0;
+  border-radius: 100%;
+  background-color: var(--primary-color);
+}
+
+.footer-container > button > p {
+  font-size: 4rem;
+  color: white;
+}

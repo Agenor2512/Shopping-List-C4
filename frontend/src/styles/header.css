@@ -1,0 +1,22 @@
+.header-container {
+  display: flex;
+  width: 100vw;
+  min-height: 10vh;
+}
+
+.header-container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 32vw;
+  min-height: 12vh;
+  padding: 0 1.5rem;
+  border-radius: 0 0 100% 0;
+  background-color: darkslateblue;
+}
+
+.header-container > div > img {
+  width: 20vw;
+  margin-right: 1.5rem;
+}
