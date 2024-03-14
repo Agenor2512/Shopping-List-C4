@@ -1,6 +1,7 @@
 .item-container {
+  display: flex;
+  flex-direction: column;
   width: 100vw;
-  height: 100vh;
   padding: 1rem;
   font-family: var(--primary-font);
   color: var(--primary-color);
