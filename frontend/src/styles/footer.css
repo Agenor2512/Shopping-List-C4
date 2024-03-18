@@ -20,3 +20,9 @@
   font-size: 4rem;
   color: white;
 }
+
+@media screen and (min-width: 600px) {
+  .footer-container > button {
+    display: none;
+  }
+}
