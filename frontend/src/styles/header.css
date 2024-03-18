@@ -20,3 +20,17 @@
   width: 20vw;
   margin-right: 1.5rem;
 }
+
+@media screen and (min-width: 600px) {
+  .header-container > div {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100vw;
+    border-radius: 0 0 50% 0;
+  }
+
+  .header-container > div > img {
+    width: 10vw;
+    margin-right: 1.5rem;
+  }
+}

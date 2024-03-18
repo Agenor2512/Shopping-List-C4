@@ -1,6 +1,10 @@
 :root {
   --primary-font: "Roboto", sans-serif;
   --primary-color: darkslateblue;
+  --color-black: black;
+  --secondary-color: white;
+  --delete-button-color: darkred;
+  --input-color: lightgray;
 }
 
 * {
