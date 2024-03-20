@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import logo from "../assets/logo.png";
 
@@ -29,7 +30,7 @@ function LoginForm() {
         />
         <button type="submit">Log in</button>
         <p>
-          or <span>Create an account</span>
+          or <Link to="/">Create an account</Link>
         </p>
       </form>
     </div>

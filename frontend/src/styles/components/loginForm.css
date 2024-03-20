@@ -17,7 +17,7 @@
 }
 
 .login-form-container > div > img {
-  width: 40vw;
+  width: 35vw;
 }
 
 .login-form-container > form {
@@ -43,6 +43,7 @@
   margin-top: 3rem;
   text-align: left;
   font-size: 1rem;
+  color: gray;
 }
 
 .login-form-container > form > input {
@@ -72,11 +73,42 @@
 }
 
 .login-form-container > form > p,
-.login-form-container > form > p > span {
+.login-form-container > form > p > a {
   margin: 1rem 0;
   color: gray;
 }
 
-.login-form-container > form > p > span {
+.login-form-container > form > p > a {
   text-decoration: underline;
+}
+
+@media screen and (min-width: 600px) {
+  .login-form-container > div > img {
+    width: 15vw;
+  }
+
+  .login-form-container > form {
+    border-radius: 90px 90px 0 0;
+  }
+
+  .login-form-container > form > h1 {
+    font-size: 4rem;
+  }
+
+  .login-form-container > form > h4,
+  .login-form-container > form > p,
+  .login-form-container > form > label {
+    font-size: 1.2rem;
+  }
+
+  .login-form-container > form > label {
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+
+  .login-form-container > form > label,
+  .login-form-container > form > input,
+  .login-form-container > form > button {
+    width: 40vw;
+  }
 }
