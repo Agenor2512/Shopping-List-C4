@@ -1,0 +1,143 @@
+.add-overlay {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgb(49, 49, 49, 0.8);
+}
+
+.nav-container > .nav-mobile > .add-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17vw;
+  height: 7.5vh;
+  margin: 1rem 1rem;
+  border: 0;
+  border-radius: 100%;
+  background-color: var(--primary-color);
+}
+
+.nav-container > .nav-mobile > .add-button-container > .add-button {
+  background: none;
+  border: 0;
+  border-radius: 100%;
+}
+
+.nav-container > .nav-mobile > .add-button-container > .add-button > p {
+  font-size: 4rem;
+  color: white;
+}
+
+.add-overlay > .add-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 25rem;
+  border: none;
+  border-radius: 22px;
+  background-color: var(--secondary-color);
+  font-family: var(--primary-font);
+}
+
+.add-overlay > .add-modal > .add-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 1rem;
+}
+
+.add-overlay > .add-modal > .add-modal-content > h2 {
+  margin: 0.5rem;
+  font-family: var(--primary-font);
+  color: var(--color-black);
+}
+
+.add-overlay > .add-modal > .add-modal-content > input {
+  width: 20rem;
+  height: 3rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  outline: 0;
+  border: none;
+  border-radius: 10px;
+  font: var(--primary-font);
+  color: var(--color-black);
+  background-color: var(--input-color);
+}
+
+.add-overlay > .add-modal > .add-modal-content > input:focus {
+  border: var(--primary-color) solid 2px;
+}
+
+.add-overlay > .add-modal > .add-modal_content > a {
+  text-decoration: none;
+}
+
+.add-overlay > .add-modal > .add-modal-content > a > .validate {
+  width: 15rem;
+  border-radius: 20px;
+  border: 0;
+  color: var(--secondary-color);
+}
+
+.add-overlay > .add-modal > .add-modal-content > a > .validate {
+  padding: 0.3rem;
+  background-color: var(--primary-color);
+}
+
+.add-overlay > .add-modal > .add-modal-content > a > .validate > img {
+  width: 2rem;
+}
+
+.add-overlay > .add-modal > button {
+  position: absolute;
+  height: 1rem;
+  top: 0.2rem;
+  right: 12px;
+  border: none;
+  background: none;
+  font-size: xx-large;
+  color: var(--primary-color);
+}
+
+@media only screen and (min-width: 600px) {
+  .nav-container > .nav-mobile > .add-button-container {
+    width: 5vw;
+  }
+
+  .add-overlay {
+    justify-content: center;
+  }
+
+  .add-overlay > .add-modal {
+    inset-inline-start: auto;
+    inset-inline-end: auto;
+    width: 40rem;
+    height: 29rem;
+  }
+
+  .add-overlay > .add-modal > .add-modal-content > h2 {
+    margin-bottom: 2.5rem;
+  }
+
+  .add-overlay > .add-modal > .add-modal-content > input {
+    width: 30rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .add-overlay > .add-modal > .add-modal-content > a > .validate {
+    cursor: pointer;
+  }
+
+  .add-overlay > .add-modal > button {
+    cursor: pointer;
+  }
+}
