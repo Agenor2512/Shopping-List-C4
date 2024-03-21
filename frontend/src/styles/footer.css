@@ -5,24 +5,12 @@
   width: 100vw;
 }
 
-.nav-container > .nav-mobile > .add {
+.nav-container > .nav-mobile {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 17vw;
-  height: 7.5vh;
-  margin: 1rem 1rem;
-  border: 0;
-  border-radius: 100%;
-  background-color: var(--primary-color);
+  flex-direction: column;
 }
 
-.nav-container > .nav-mobile > button > p {
-  font-size: 4rem;
-  color: white;
-}
-
-.nav-container > .nav-mobile > div {
+.nav-container > .nav-mobile > .navigation {
   display: flex;
   justify-content: flex-end;
   width: 100vw;
@@ -31,20 +19,19 @@
   background-color: var(--primary-color);
 }
 
-.nav-container > .nav-mobile > div > button {
+.nav-container > .nav-mobile > .navigation > button {
   width: 20vw;
   margin-left: 5.5rem;
   background: none;
   border: 0;
 }
 
-.nav-container > .nav-mobile > div > button > img {
+.nav-container > .nav-mobile > .navigation > button > img {
   width: 10vw;
 }
 
 @media screen and (min-width: 600px) {
-  .nav-container > .nav-mobile > .add,
-  .nav-container > .nav-mobile > div {
+  .nav-container > .nav-mobile > .navigation {
     display: none;
   }
 }

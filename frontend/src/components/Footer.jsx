@@ -1,16 +1,15 @@
-import "../styles/footer.css";
-
 import home from "../assets/home.svg";
 import search from "../assets/search.svg";
+import Add from "./Add";
+
+import "../styles/footer.css";
 
 function Footer() {
   return (
     <div className="nav-container">
       <div className="nav-mobile">
-        <button type="button" className="add">
-          <p>+</p>
-        </button>
-        <div>
+        <Add />
+        <div className="navigation">
           <button type="button">
             <img src={home} alt="home page button" />
           </button>
