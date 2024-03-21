@@ -1,0 +1,131 @@
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primary-color);
+  font-family: var(--primary-font);
+}
+
+.login-form-container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+
+.login-form-container > div > img {
+  width: 35vw;
+}
+
+.login-form-container > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 70vh;
+  padding: 1rem;
+  border-radius: 0 90px 0 0;
+  background-color: var(--secondary-color);
+}
+
+.login-form-container > form > h4,
+.login-form-container > form > label,
+.login-form-container > form > p,
+.login-form-container > form > p > a {
+  color: var(--color-gray);
+}
+
+.login-form-container > form > h4 {
+  margin-top: 1rem;
+  font-weight: normal;
+}
+
+.login-form-container > form > label {
+  width: 60vw;
+  margin-top: 3rem;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.login-form-container > form > input {
+  width: 60vw;
+  height: 5vh;
+  padding: 0.9rem;
+  border: 0;
+  border-radius: 15px;
+  background-color: var(--input-color);
+}
+
+.login-form-container > form > input:focus {
+  outline: 0;
+  border: 2px solid var(--color-gray);
+  background-color: var(--input-color);
+}
+
+.login-form-container > form > button {
+  width: 60vw;
+  margin-top: 5rem;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 5px;
+  background-color: var(--login-button-color);
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.login-form-container > form > p,
+.login-form-container > form > p > a {
+  margin: 1rem 0;
+}
+
+.login-form-container > form > p > a {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 600px) {
+  .login-form-container > div > img {
+    width: 15vw;
+  }
+
+  .login-form-container > form {
+    border-radius: 90px 90px 0 0;
+  }
+
+  .login-form-container > form > h1 {
+    font-size: 4rem;
+  }
+
+  .login-form-container > form > h4,
+  .login-form-container > form > p,
+  .login-form-container > form > label {
+    font-size: 1.2rem;
+  }
+
+  .login-form-container > form > label {
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+
+  .login-form-container > form > label,
+  .login-form-container > form > input {
+    width: 30vw;
+  }
+
+  .login-form-container > form > button {
+    width: 20vw;
+    background-color: var(--color-gray);
+    cursor: pointer;
+  }
+
+  .login-form-container > form > button:hover {
+    background-color: var(--login-button-color);
+    transition:
+      background-color 0.2s,
+      color 0.2s;
+  }
+}
