@@ -2,9 +2,11 @@
   --primary-font: "Roboto", sans-serif;
   --primary-color: darkslateblue;
   --color-black: black;
+  --color-gray: gray;
   --secondary-color: white;
   --delete-button-color: darkred;
   --input-color: lightgray;
+  --login-button-color: #cb6ce6;
 }
 
 * {

@@ -57,7 +57,7 @@
 
 .login-form-container > form > input:focus {
   outline: 0;
-  border: 2px solid gray;
+  border: 2px solid var(--color-gray);
 }
 
 .login-form-container > form > button {
@@ -66,7 +66,7 @@
   padding: 0.5rem;
   border: 0;
   border-radius: 5px;
-  background-color: #cb6ce6;
+  background-color: var(--login-button-color);
   color: var(--secondary-color);
   font-size: 1.2rem;
   font-weight: bold;
@@ -75,7 +75,7 @@
 .login-form-container > form > p,
 .login-form-container > form > p > a {
   margin: 1rem 0;
-  color: gray;
+  color: var(--color-gray);
 }
 
 .login-form-container > form > p > a {
@@ -107,8 +107,20 @@
   }
 
   .login-form-container > form > label,
-  .login-form-container > form > input,
+  .login-form-container > form > input {
+    width: 30vw;
+  }
+
   .login-form-container > form > button {
-    width: 40vw;
+    width: 20vw;
+    background-color: var(--color-gray);
+    cursor: pointer;
+  }
+
+  .login-form-container > form > button:hover {
+    background-color: var(--login-button-color);
+    transition:
+      background-color 0.2s,
+      color 0.2s;
   }
 }
