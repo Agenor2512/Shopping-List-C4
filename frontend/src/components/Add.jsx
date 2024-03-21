@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
-import doneIcon from "../assets/done.svg";
 
 import "../styles/components/add.css";
 
@@ -28,23 +27,32 @@ function Add() {
           <dialog className="add-modal">
             <form className="add-modal-content">
               <h2>Add an item</h2>
+              <label htmlFor="item-name">Item name</label>
               <input
                 id="item-name"
                 name="item-name"
                 type="item-name"
                 required
               />
+              <label htmlFor="item-quantity">Quantity</label>
               <input
                 id="item-quantity"
                 name="item-quantity"
                 type="item-quantity"
                 required
               />
-              <Link to="/">
-                <button type="submit" className="validate">
-                  <img src={doneIcon} alt="done a task icon" />
-                </button>
-              </Link>
+              <div>
+                <Link to="/">
+                  <button type="submit" className="validate">
+                    Add it !
+                  </button>
+                </Link>
+                <Link to="/">
+                  <button type="submit" className="cancel">
+                    Cancel
+                  </button>
+                </Link>
+              </div>
             </form>
             <button type="button" onClick={toggleModal}>
               &times;

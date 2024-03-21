@@ -5,6 +5,11 @@
   width: 100vw;
 }
 
+.nav-container > .nav-mobile {
+  display: flex;
+  flex-direction: column;
+}
+
 .nav-container > .nav-mobile > .navigation {
   display: flex;
   justify-content: flex-end;
