@@ -32,10 +32,16 @@
   background-color: var(--secondary-color);
 }
 
+.login-form-container > form > h4,
+.login-form-container > form > label,
+.login-form-container > form > p,
+.login-form-container > form > p > a {
+  color: var(--color-gray);
+}
+
 .login-form-container > form > h4 {
   margin-top: 1rem;
   font-weight: normal;
-  color: gray;
 }
 
 .login-form-container > form > label {
@@ -43,7 +49,6 @@
   margin-top: 3rem;
   text-align: left;
   font-size: 1rem;
-  color: gray;
 }
 
 .login-form-container > form > input {
@@ -58,6 +63,7 @@
 .login-form-container > form > input:focus {
   outline: 0;
   border: 2px solid var(--color-gray);
+  background-color: var(--input-color);
 }
 
 .login-form-container > form > button {
@@ -75,7 +81,6 @@
 .login-form-container > form > p,
 .login-form-container > form > p > a {
   margin: 1rem 0;
-  color: var(--color-gray);
 }
 
 .login-form-container > form > p > a {
