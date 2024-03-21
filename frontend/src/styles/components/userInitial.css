@@ -1,0 +1,15 @@
+.header-container > div > .user-initial-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: end;
+  width: 15vw;
+  height: 7vh;
+  border-radius: 100%;
+  background-color: #cb6ce6;
+}
+
+.header-container > div > div > .user-initial-container > p {
+  width: 2vw;
+}

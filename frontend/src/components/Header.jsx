@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 import "../styles/header.css";
+import UserInitial from "./UserInitial";
 
 function Header() {
   return (
     <div className="header-container">
       <div>
         <img src={logo} alt="website logo" />
+        <UserInitial />
+
         <nav>
           <ul>
             <li>
