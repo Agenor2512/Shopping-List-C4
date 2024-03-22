@@ -1,23 +1,34 @@
-create table user (
-  id varchar(36) not null,
-  name varchar(100),
-  email varchar(320),
-  password varchar(100),
-  primary key(id)
+create table user
+(
+    id varchar(36) not null,
+    name varchar(100),
+    email varchar(320),
+    password varchar(100),
+    primary key(id)
 );
 
-create table ingredient (
+create table ingredient
+(
     id int not null auto_increment,
     name varchar(100),
     quantity varchar(20),
     primary key(id)
 );
 
-insert into user (id, name, email, password) values
+create table list
+(
+    ingredient_id int not null auto_increment,
+    user_id varchar(36) not null,
+    primary key(ingredient_id, user_id),
+    foreign key(ingredient_id) references ingredient (id),
+    foreign key(user_id) references user (id)
+);
+
+insert into user (id, name, email, password) values 
 ("2de1feec-a19a-4f16-9226-af782acdab42", "John Doe", "johnd@gmail.com", "shoppinglist"),
 ("2de1feec-a19a-4f16-9226-af782acdab47", "Sally Dupuis", "sally@gmail.com", "shoppinglist");
 
-insert into ingredient (name, quantity) values
+insert into ingredient (name, quantity) values 
 ('Pommes de terre', '2 kg'),
 ('Carottes', '500 g'),
 ('Oignons', '300 g'),
