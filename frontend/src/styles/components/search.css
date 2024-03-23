@@ -1,16 +1,16 @@
-.send_text_Button {
+.search-button-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 8rem 0;
+  align-items: flex-start;
+  height: 81vh;
 }
 
-.send_text_Button > div {
+.search-button-container > div {
   display: flex;
   justify-content: flex-end;
 }
 
-.send_text_Button > div > button {
+.search-button-container > div > button {
   background-color: var(--primary-color);
   width: 2rem;
   height: 2rem;
@@ -20,7 +20,7 @@
   margin-left: 38%;
 }
 
-.send_text_Button > div > input {
+.search-button-container > div > input {
   width: 15rem;
   height: 2rem;
   background-color: var(--search-bar-color);
@@ -29,38 +29,38 @@
   padding-left: 1rem;
 }
 
-.send_text_Button > div > input::placeholder,
-.send_text_Button > div > input:focus {
+.search-button-container > div > input::placeholder,
+.search-button-container > div > input:focus {
   font-family: var(--primary-font);
 }
 
-.send_text_Button > div > input::placeholder {
+.search-button-container > div > input::placeholder {
   font-style: italic;
 }
 
-.send_text_Button > div > input:focus {
+.search-button-container > div > input:focus {
   outline: none;
   font-weight: bold;
 }
 
 @media screen and (min-width: 600px) {
-  .send_text_Button {
-    margin: 12rem 0;
+  .search-button-container {
+    margin: 5rem 0;
   }
 
-  .send_text_Button > div > button {
+  .search-button-container > div > button {
     background-color: var(--primary-color);
     width: 3rem;
     height: 3rem;
   }
 
-  .send_text_Button > div > input {
+  .search-button-container > div > input {
     width: 30rem;
     height: 3rem;
   }
 
-  .send_text_Button > div > input::placeholder,
-  .send_text_Button > div > input:focus {
+  .search-button-container > div > input::placeholder,
+  .search-button-container > div > input:focus {
     font-size: 1rem;
   }
 }

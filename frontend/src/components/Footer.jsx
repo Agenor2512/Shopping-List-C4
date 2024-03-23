@@ -2,7 +2,7 @@ import home from "../assets/home.svg";
 import search from "../assets/search.svg";
 import Add from "./Add";
 
-import "../styles/footer.css";
+import "../styles/components/footer.css";
 
 function Footer() {
   return (

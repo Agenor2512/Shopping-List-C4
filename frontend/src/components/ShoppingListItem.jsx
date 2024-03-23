@@ -1,4 +1,4 @@
-import "../styles/shoppingListItem.css";
+import "../styles/components/shoppingListItem.css";
 import Edit from "./Edit";
 
 function ShoppingListItem() {
