@@ -26,7 +26,7 @@
   border: 0;
 }
 
-.nav-container > .nav-mobile > .navigation > button > img {
+.nav-container > .nav-mobile > .navigation > button > a > img {
   width: 10vw;
 }
 
