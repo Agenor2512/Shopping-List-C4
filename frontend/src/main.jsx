@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import ShoppingList from "./pages/ShoppingList";
+import Search from "./components/Search";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <ShoppingList />,
+      },
+      {
+        path: "/search",
+        element: <Search />,
       },
     ],
   },
