@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import ShoppingList from "./pages/ShoppingList";
 import SearchIngredients from "./pages/SearchIngredients";
+import ExistingIngredient from "./components/ExistingIngredient";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <SearchIngredients />,
+      },
+      {
+        path: "/existing",
+        element: <ExistingIngredient />,
       },
     ],
   },
