@@ -1,5 +1,4 @@
-create table user
-(
+create table user (
     id varchar(36) not null,
     name varchar(100),
     email varchar(320),
@@ -7,21 +6,26 @@ create table user
     primary key(id)
 );
 
-create table ingredient
-(
+create table ingredient (
     id int not null auto_increment,
     name varchar(100),
     quantity varchar(20),
     primary key(id)
 );
 
-create table list
-(
-    ingredient_id int not null auto_increment,
+create table list (
+    id int not null auto_increment,
+    ingredient_id int not null,
+    primary key(id),
+    foreign key(ingredient_id) references ingredient(id)
+);
+
+create table user_has_list (
     user_id varchar(36) not null,
-    primary key(ingredient_id, user_id),
-    foreign key(ingredient_id) references ingredient (id),
-    foreign key(user_id) references user (id)
+    list_id int not null,
+    primary key(list_id, user_id),
+    foreign key(user_id) references user(id),
+    foreign key(list_id) references list(id)   
 );
 
 insert into user (id, name, email, password) values 
