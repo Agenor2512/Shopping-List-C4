@@ -1,6 +1,6 @@
 import ShoppingListItem from "../components/ShoppingListItem";
 
-import "../styles/shoppingList.css";
+import "../styles/pages/shoppingList.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 

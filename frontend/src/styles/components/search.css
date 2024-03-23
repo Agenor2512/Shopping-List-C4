@@ -1,16 +1,16 @@
-.search-button {
+.search-button-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  height: 71vh;
+  height: 81vh;
 }
 
-.search-button > div {
+.search-button-container > div {
   display: flex;
   justify-content: flex-end;
 }
 
-.search-button > div > button {
+.search-button-container > div > button {
   background-color: var(--primary-color);
   width: 2rem;
   height: 2rem;
@@ -20,7 +20,7 @@
   margin-left: 38%;
 }
 
-.search-button > div > input {
+.search-button-container > div > input {
   width: 15rem;
   height: 2rem;
   background-color: var(--search-bar-color);
@@ -29,38 +29,38 @@
   padding-left: 1rem;
 }
 
-.search-button > div > input::placeholder,
-.search-button > div > input:focus {
+.search-button-container > div > input::placeholder,
+.search-button-container > div > input:focus {
   font-family: var(--primary-font);
 }
 
-.search-button > div > input::placeholder {
+.search-button-container > div > input::placeholder {
   font-style: italic;
 }
 
-.search-button > div > input:focus {
+.search-button-container > div > input:focus {
   outline: none;
   font-weight: bold;
 }
 
 @media screen and (min-width: 600px) {
-  .search-button {
-    margin: 12rem 0;
+  .search-button-container {
+    margin: 5rem 0;
   }
 
-  .search-button > div > button {
+  .search-button-container > div > button {
     background-color: var(--primary-color);
     width: 3rem;
     height: 3rem;
   }
 
-  .search-button > div > input {
+  .search-button-container > div > input {
     width: 30rem;
     height: 3rem;
   }
 
-  .search-button > div > input::placeholder,
-  .search-button > div > input:focus {
+  .search-button-container > div > input::placeholder,
+  .search-button-container > div > input:focus {
     font-size: 1rem;
   }
 }

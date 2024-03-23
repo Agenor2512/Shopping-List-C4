@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import editIcon from "../assets/edit.svg";
 import doneIcon from "../assets/done.svg";
 
-import "../styles/edit.css";
+import "../styles/components/edit.css";
 
 function Edit() {
   const [modal, setModal] = useState(false);

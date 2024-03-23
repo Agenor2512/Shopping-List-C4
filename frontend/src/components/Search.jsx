@@ -6,7 +6,7 @@ import "../styles/components/search.css";
 
 function Search() {
   return (
-    <div className="search-button">
+    <div className="search-button-container">
       <div>
         <button type="button">
           <img src={searchIcon} alt="a magnifier icon" />
