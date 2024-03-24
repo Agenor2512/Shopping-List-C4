@@ -11,14 +11,19 @@ import { searchByQuery } from "../services/ingredientService";
 
 function SearchIngredients() {
   const [ingredients, setIngredients] = useState(null);
+  const [query, setQuery] = useState("");
+
+  const handleChangeSearchInput = (event) => {
+    setQuery(event.target.value);
+  };
 
   useEffect(() => {
-    searchByQuery().then((data) => setIngredients(data));
-  }, []);
+    searchByQuery(query).then((data) => setIngredients(data));
+  }, [query]);
   return (
     <div className="all-search-container">
       <Header />
-      <Search />
+      <Search inputTools={handleChangeSearchInput} />
       <div className="list-container">
         {ingredients === null ? (
           <Loader />
