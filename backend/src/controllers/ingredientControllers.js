@@ -1,16 +1,29 @@
 // Import access to database tables
 const tables = require("../tables");
 
-const browse = async (req, res, next) => {
+const browse = async (_, response, next) => {
   try {
-    const ingredient = await tables.ingredient.readAll();
+    const ingredients = await tables.ingredient.readAll();
 
-    res.json(ingredient);
-  } catch (err) {
-    next(err);
+    response.json(ingredients);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const search = async (request, response, next) => {
+  try {
+    const ingredients = await tables.ingredient.searchByQuery(
+      request.query.query
+    );
+
+    response.json(ingredients);
+  } catch (error) {
+    next(error);
   }
 };
 
 module.exports = {
   browse,
+  search,
 };

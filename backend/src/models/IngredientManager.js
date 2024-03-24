@@ -28,7 +28,19 @@ class IngredientManager extends AbstractManager {
 
   async readAll() {
     const [rows] = await this.database.query(`select *
-                                              from ${this.table}`);
+              from ${this.table}`);
+
+    return rows;
+  }
+
+  async searchByQuery(query) {
+    const [rows] = await this.database.query(
+      `select *
+              from ${this.table}
+              where LOWER(${this.table}.name)
+                        like CONCAT('%', LOWER(?), '%')`,
+      [query]
+    );
 
     return rows;
   }

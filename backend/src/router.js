@@ -4,7 +4,6 @@ const router = express.Router();
 
 const ingredientControllers = require("./controllers/ingredientControllers");
 
-// Route to get a list of items
-router.get("/ingredients", ingredientControllers.browse);
+router.get("/ingredients", ingredientControllers.search);
 
 module.exports = router;
