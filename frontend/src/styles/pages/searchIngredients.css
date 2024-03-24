@@ -5,11 +5,23 @@
 .all-search-container > .list-container {
   display: flex;
   flex-direction: column;
-  height: 78vh;
+  height: 77.6vh;
   overflow: scroll;
+  scrollbar-width: none;
 }
 
 .all-search-container > .list-container:has(> .loader) {
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+  .all-search-container > .list-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    margin: 0;
+  }
 }
