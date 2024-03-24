@@ -3,7 +3,7 @@ import React from "react";
 
 import "../styles/components/existingIngredient.css";
 
-function ExistingIngredient({ ingredient: { name, quantity } }) {
+function ExistingIngredient({ ingredient: { name } }) {
   return (
     <div className="existing-ingredient-container">
       <div className="existing-ingredient-card">
@@ -11,7 +11,6 @@ function ExistingIngredient({ ingredient: { name, quantity } }) {
           <h1>{name}</h1>
           <button type="button">Add</button>
         </section>
-        <h3>{quantity}</h3>
       </div>
     </div>
   );
