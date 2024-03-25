@@ -5,11 +5,11 @@ class IngredientManager extends AbstractManager {
     super({ table: "ingredient" });
   }
 
-  async create(ingredient) {
+  async create({ name }) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (name, quantity)
-       values (?, ?)`,
-      [ingredient.name, ingredient.quantity]
+      `insert into ${this.table} (name)
+       values (?)`,
+      [name]
     );
 
     return result.insertId;
@@ -24,13 +24,6 @@ class IngredientManager extends AbstractManager {
     );
 
     return rows[0];
-  }
-
-  async readAll() {
-    const [rows] = await this.database.query(`select *
-              from ${this.table}`);
-
-    return rows;
   }
 
   async searchByQuery(query) {
