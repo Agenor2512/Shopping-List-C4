@@ -2,10 +2,13 @@ import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
+import { create } from "../services/ingredientService";
+
 import "../styles/components/add.css";
 
 function Add() {
   const [modal, setModal] = useState(false);
+  const [name, setName] = useState("");
 
   const toggleModal = () => {
     setModal(!modal);
@@ -13,6 +16,15 @@ function Add() {
 
   const toggleModalOnce = () => {
     setModal(true);
+  };
+
+  const handleInputChange = (event) => {
+    setName(event.target.name);
+  };
+
+  const handleClick = () => {
+    create(name);
+    toggleModal();
   };
 
   return (
@@ -27,11 +39,12 @@ function Add() {
           <dialog className="add-modal">
             <form className="add-modal-content">
               <h2>Add an item</h2>
-              <label htmlFor="item-name">Item name</label>
+              <label htmlFor="ingredient-name">Item name</label>
               <input
-                id="item-name"
-                name="item-name"
-                type="item-name"
+                id="ingredient-name"
+                name="ingredient-name"
+                type="ingredient-name"
+                onChange={handleInputChange}
                 required
               />
               <label htmlFor="item-quantity">Quantity</label>
@@ -43,7 +56,11 @@ function Add() {
               />
               <div>
                 <Link to="/">
-                  <button type="submit" className="validate">
+                  <button
+                    type="submit"
+                    className="validate"
+                    onClick={handleClick}
+                  >
                     Add it !
                   </button>
                 </Link>
