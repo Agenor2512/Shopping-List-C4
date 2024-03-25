@@ -1,85 +1,100 @@
-create table user (
-    id varchar(36) not null,
-    name varchar(100),
-    email varchar(320),
+create table user
+(
+    id       varchar(36) not null,
+    name     varchar(100),
+    email    varchar(320),
     password varchar(100),
-    primary key(id)
+    primary key (id)
 );
 
-create table ingredient (
-    id int not null auto_increment,
-    name varchar(100),
-    quantity varchar(20),
-    primary key(id)
+create table ingredient
+(
+    id   int not null auto_increment,
+    name varchar(100) not null,
+    primary key (id)
 );
 
-create table list (
-    id int not null auto_increment,
-    ingredient_id int not null,
-    primary key(id),
-    foreign key(ingredient_id) references ingredient(id)
-);
-
-create table user_has_list (
+create table list
+(
+    id      int         not null auto_increment,
     user_id varchar(36) not null,
-    list_id int not null,
-    primary key(list_id, user_id),
-    foreign key(user_id) references user(id),
-    foreign key(list_id) references list(id)   
+    primary key (id),
+    foreign key (user_id) references user (id)
 );
 
-insert into user (id, name, email, password) values 
-("2de1feec-a19a-4f16-9226-af782acdab42", "John Doe", "johnd@gmail.com", "shoppinglist"),
-("2de1feec-a19a-4f16-9226-af782acdab47", "Sally Dupuis", "sally@gmail.com", "shoppinglist");
+create table list_has_ingredients
+(
+    list_id       int not null,
+    ingredient_id int not null,
+    quantity      varchar(100),
+    primary key (list_id, ingredient_id),
+    foreign key (list_id) references list (id),
+    foreign key (ingredient_id) references ingredient (id)
+);
 
-insert into ingredient (name, quantity) values 
-('Pommes de terre', '2 kg'),
-('Carottes', '500 g'),
-('Oignons', '300 g'),
-('Tomates', '1 kg'),
-('Poivrons', '400 g'),
-('Courgettes', '600 g'),
-('Aubergines', '700 g'),
-('Poireaux', '400 g'),
-('Champignons', '300 g'),
-('Épinards', '200 g'),
-('Haricots verts', '400 g'),
-('Petits pois', '250 g'),
-('Brocoli', '500 g'),
-('Chou-fleur', '600 g'),
-('Céleri', '300 g'),
-('Navets', '400 g'),
-('Radis', '200 g'),
-('Concombres', '500 g'),
-('Laitue', '300 g'),
-('Endives', '400 g'),
-('Betteraves', '500 g'),
-('Citrons', '1 kg'),
-('Oranges', '800 g'),
-('Pommes', '1.5 kg'),
-('Bananes', '1 kg'),
-('Fraises', '500 g'),
-('Framboises', '300 g'),
-('Myrtilles', '400 g'),
-('Ananas', '1.2 kg'),
-('Melon', '1 kg'),
-('Pastèque', '2 kg'),
-('Mangue', '800 g'),
-('Papaye', '700 g'),
-('Kiwi', '600 g'),
-('Poires', '800 g'),
-('Pêches', '700 g'),
-('Cerises', '500 g'),
-('Abricots', '600 g'),
-('Raisins', '1 kg'),
-('Noix de coco', '500 g'),
-('Noix', '400 g'),
-('Amandes', '300 g'),
-('Pistaches', '200 g'),
-('Cacahuètes', '400 g'),
-('Noisettes', '300 g'),
-('Graines de tournesol', '500 g'),
-('Graines de citrouille', '400 g'),
-('Graines de sésame', '300 g'),
-('Graines de lin', '200 g'),
-('Graines de chia', '250 g');
+insert into user (id, name, email, password)
+values ('2de1feec-a19a-4f16-9226-af782acdab42', 'John Doe', 'johnd@gmail.com', 'shoppinglist'),
+       ('2de1feec-a19a-4f16-9226-af782acdab47', 'Sally Dupuis', 'sally@gmail.com', 'shoppinglist');
+
+
+insert into ingredient (id, name)
+values (1, 'Pommes de terre'),
+       (2, 'Carottes'),
+       (3, 'Oignons'),
+       (4, 'Tomates'),
+       (5, 'Poivrons'),
+       (6, 'Courgettes'),
+       (7, 'Aubergines'),
+       (8, 'Poireaux'),
+       (9, 'Champignons'),
+       (10, 'Épinards'),
+       (11, 'Haricots verts'),
+       (12, 'Petits pois'),
+       (13, 'Brocoli'),
+       (14, 'Chou-fleur'),
+       (15, 'Céleri'),
+       (16, 'Navets'),
+       (17, 'Radis'),
+       (18, 'Concombres'),
+       (19, 'Laitue'),
+       (20, 'Endives'),
+       (21, 'Betteraves'),
+       (22, 'Citrons'),
+       (23, 'Oranges'),
+       (24, 'Pommes'),
+       (25, 'Bananes'),
+       (26, 'Fraises'),
+       (27, 'Framboises'),
+       (28, 'Myrtilles'),
+       (29, 'Ananas'),
+       (30, 'Melon'),
+       (31, 'Pastèque'),
+       (32, 'Mangue'),
+       (33, 'Papaye'),
+       (34, 'Kiwi'),
+       (35, 'Poires'),
+       (36, 'Pêches'),
+       (37, 'Cerises'),
+       (38, 'Abricots'),
+       (39, 'Raisins'),
+       (40, 'Noix de coco'),
+       (41, 'Noix'),
+       (42, 'Amandes'),
+       (43, 'Pistaches'),
+       (44, 'Cacahuètes'),
+       (45, 'Noisettes'),
+       (46, 'Graines de tournesol'),
+       (47, 'Graines de citrouille'),
+       (48, 'Graines de sésame'),
+       (49, 'Graines de lin'),
+       (50, 'Graines de chia');
+
+insert into list (id, user_id)
+values (1, '2de1feec-a19a-4f16-9226-af782acdab42'),
+       (2, '2de1feec-a19a-4f16-9226-af782acdab47');
+
+insert into list_has_ingredients (list_id, ingredient_id, quantity)
+values (1, 4, '500 grammes'),
+       (1, 50, '200 grammes'),
+       (2, 36, '1kg'),
+       (2, 14, '100 grammes');
