@@ -58,6 +58,7 @@
   border: none;
   border-radius: 10px;
   font: var(--primary-font);
+  font-weight: bold;
   color: var(--color-black);
   background-color: var(--input-color);
 }

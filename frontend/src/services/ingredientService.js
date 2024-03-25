@@ -1,5 +1,5 @@
 /* eslint-disable no-promise-executor-return */
-/* eslint-disable-next-line import/prefer-default-export */
+/* eslint-disable import/prefer-default-export */
 import axios from "axios";
 
 const baseURL = import.meta.env.VITE_BACKEND_URL;

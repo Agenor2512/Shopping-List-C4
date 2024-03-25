@@ -1,20 +1,6 @@
 // Import access to database tables
 const tables = require("../tables");
 
-const read = async (request, response, next) => {
-  try {
-    const ingredient = await tables.ingredient.read(request.params.id);
-
-    if (ingredient === null) {
-      response.sendStatus(404);
-    } else {
-      response.json(ingredient);
-    }
-  } catch (error) {
-    next(error);
-  }
-};
-
 const add = async (request, response, next) => {
   const ingredient = request.body;
 
@@ -40,7 +26,6 @@ const search = async (request, response, next) => {
 };
 
 module.exports = {
-  read,
   add,
   search,
 };
