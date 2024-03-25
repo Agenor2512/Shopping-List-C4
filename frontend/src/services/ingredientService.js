@@ -9,6 +9,13 @@ const client = axios.create({
   timeout: 60_000,
 });
 
+export const readById = (ingredientId) => {
+  return client
+    .get("ingredients/:id", { id: ingredientId })
+    .then((response) => response.data)
+    .catch((error) => console.error(error));
+};
+
 export const searchByQuery = (query) => {
   return client
     .get("/ingredients", { params: { query } })
