@@ -19,12 +19,16 @@ function Add() {
   };
 
   const handleInputChange = (event) => {
-    setName(event.target.name);
+    setName(event.target.value);
   };
 
   const handleClick = () => {
     create(name);
     toggleModal();
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
   };
 
   return (
@@ -37,7 +41,7 @@ function Add() {
       {modal && (
         <div className="add-overlay">
           <dialog className="add-modal">
-            <form className="add-modal-content">
+            <form className="add-modal-content" onSubmit={handleSubmit}>
               <h2>Add an item</h2>
               <label htmlFor="ingredient-name">Item name</label>
               <input

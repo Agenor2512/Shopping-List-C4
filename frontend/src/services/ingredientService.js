@@ -16,9 +16,9 @@ export const searchByQuery = (query) => {
     .catch((error) => console.error(error));
 };
 
-export const create = (name) => {
+export const create = (ingredientName) => {
   client
-    .post("/ingredients", name)
-    .then((response) => console.info(response))
+    .post("/ingredients", { name: ingredientName })
+    .then((response) => console.info(response.data))
     .catch((error) => console.error(error));
 };
