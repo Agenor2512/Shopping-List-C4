@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { modify } from "../services/listHasIngredientsService";
 
 import editIcon from "../assets/edit.svg";
 import doneIcon from "../assets/done.svg";
 
 import "../styles/components/edit.css";
 
-function Edit({ name, quantity }) {
+function Edit({ item: { name, quantity, listId, ingredientId }, refreshList }) {
   const [modal, setModal] = useState(false);
-  const [setIngredientQuantity] = useState(quantity);
+  const [ingredientQuantity, setIngredientQuantity] = useState(quantity);
 
   const toggleModal = () => {
     setModal(!modal);
@@ -21,6 +22,12 @@ function Edit({ name, quantity }) {
 
   const handleQuantityChange = (event) => {
     setIngredientQuantity(event.target.value);
+  };
+
+  const handleSubmission = () => {
+    modify({ listId, ingredientId, quantity: ingredientQuantity });
+    refreshList();
+    toggleModal();
   };
 
   return (
@@ -54,7 +61,11 @@ function Edit({ name, quantity }) {
                 Delete it
               </button>
               <Link to="/">
-                <button type="submit" className="validate">
+                <button
+                  type="submit"
+                  className="validate"
+                  onClick={handleSubmission}
+                >
                   <img src={doneIcon} alt="done a task icon" />
                 </button>
               </Link>

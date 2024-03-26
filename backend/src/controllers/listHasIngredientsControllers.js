@@ -2,7 +2,7 @@ const tables = require("../tables");
 
 const update = async (request, response, next) => {
   const { ingredientId, listId } = request.params;
-  const { quantity } = request.body.quantity;
+  const { quantity } = request.body;
 
   try {
     await tables.list_has_ingredients.update({
