@@ -10,10 +10,15 @@ import "../styles/pages/shoppingList.css";
 
 function ShoppingList() {
   const [list, setList] = useState(null);
+  const [seed, setSeed] = useState(1);
+
+  const triggerDataRefresh = () => {
+    setSeed(Math.random());
+  };
 
   useEffect(() => {
     readById().then((data) => setList(data));
-  }, []);
+  }, [seed]);
 
   return (
     <>
@@ -22,7 +27,13 @@ function ShoppingList() {
         {list === null ? (
           <Loader />
         ) : (
-          list.map((item) => <ShoppingListItem key={item.name} item={item} />)
+          list.map((item) => (
+            <ShoppingListItem
+              key={item.name}
+              item={item}
+              refreshList={triggerDataRefresh}
+            />
+          ))
         )}
       </main>
       <Footer />
