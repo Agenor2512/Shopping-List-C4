@@ -9,6 +9,7 @@ import "../styles/components/edit.css";
 
 function Edit({ name, quantity }) {
   const [modal, setModal] = useState(false);
+  const [setIngredientQuantity] = useState(quantity);
 
   const toggleModal = () => {
     setModal(!modal);
@@ -16,6 +17,10 @@ function Edit({ name, quantity }) {
 
   const toggleModalOnce = () => {
     setModal(true);
+  };
+
+  const handleQuantityChange = (event) => {
+    setIngredientQuantity(event.target.value);
   };
 
   return (
@@ -41,7 +46,8 @@ function Edit({ name, quantity }) {
                 id="item-quantity"
                 name="item-quantity"
                 type="item-quantity"
-                value={quantity}
+                defaultValue={quantity}
+                onChange={handleQuantityChange}
                 required
               />
               <button type="submit" className="delete">
