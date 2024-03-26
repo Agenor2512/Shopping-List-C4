@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -6,7 +7,7 @@ import doneIcon from "../assets/done.svg";
 
 import "../styles/components/edit.css";
 
-function Edit() {
+function Edit({ name, quantity }) {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -33,12 +34,14 @@ function Edit() {
                 id="item-name"
                 name="item-name"
                 type="item-name"
+                value={name}
                 required
               />
               <input
                 id="item-quantity"
                 name="item-quantity"
                 type="item-quantity"
+                value={quantity}
                 required
               />
               <button type="submit" className="delete">
