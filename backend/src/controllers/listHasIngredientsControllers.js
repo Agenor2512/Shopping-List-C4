@@ -1,5 +1,20 @@
 const tables = require("../tables");
 
+const add = async (request, response, next) => {
+  const { ingredientId, listId } = request.params;
+
+  try {
+    const insertId = await tables.list_has_ingredients.create({
+      ingredientId,
+      listId,
+    });
+
+    response.status(201).json({ insertId });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const update = async (request, response, next) => {
   const { ingredientId, listId } = request.params;
   const { quantity } = request.body;
@@ -17,4 +32,4 @@ const update = async (request, response, next) => {
   }
 };
 
-module.exports = { update };
+module.exports = { add, update };

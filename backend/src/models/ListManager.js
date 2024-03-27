@@ -15,6 +15,7 @@ class ListManager extends AbstractManager {
       [userId]
     );
 
+    // Mapping to match field names
     return rows.map((row) => {
       return {
         ingredientId: row.ingredient_id,
