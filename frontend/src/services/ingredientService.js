@@ -9,13 +9,6 @@ const client = axios.create({
   timeout: 60_000,
 });
 
-export const readById = (ingredientId) => {
-  return client
-    .get("ingredients/:id", { id: ingredientId })
-    .then((response) => response.data)
-    .catch((error) => console.error(error));
-};
-
 export const searchByQuery = (query) => {
   return client
     .get("/ingredients", { params: { query } })
@@ -23,9 +16,9 @@ export const searchByQuery = (query) => {
     .catch((error) => console.error(error));
 };
 
-export const create = (ingredientName) => {
+export const create = ({ name, quantity }) => {
   client
-    .post("/ingredients", { name: ingredientName })
+    .post("/ingredients", { name, quantity, listId: 1 })
     .then((response) => console.info(response.data))
     .catch((error) => console.error(error));
 };

@@ -6,6 +6,10 @@ const add = async (request, response, next) => {
 
   try {
     const insertId = await tables.ingredient.create(ingredient);
+    await tables.list_has_ingredients.create({
+      ...ingredient,
+      ingredientId: insertId,
+    });
 
     response.status(201).json({ insertId });
   } catch (error) {

@@ -23,20 +23,19 @@ function ShoppingList() {
   return (
     <>
       <Header />
-      <main>
-        {list === null ? (
-          <Loader />
-        ) : (
-          list.map((item) => (
-            <ShoppingListItem
-              key={item.name}
-              item={item}
-              refreshList={triggerDataRefresh}
-            />
-          ))
-        )}
-      </main>
-      <Footer />
+
+      {list === null ? (
+        <Loader />
+      ) : (
+        list.map((item) => (
+          <ShoppingListItem
+            key={item.name}
+            item={item}
+            refreshList={triggerDataRefresh}
+          />
+        ))
+      )}
+      <Footer refreshList={triggerDataRefresh} />
     </>
   );
 }

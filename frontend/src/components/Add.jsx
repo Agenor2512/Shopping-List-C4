@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
@@ -6,9 +7,10 @@ import { create } from "../services/ingredientService";
 
 import "../styles/components/add.css";
 
-function Add() {
+function Add({ refreshList }) {
   const [modal, setModal] = useState(false);
   const [name, setName] = useState("");
+  const [quantity, setQuantity] = useState(0);
 
   const toggleModal = () => {
     setModal(!modal);
@@ -18,12 +20,16 @@ function Add() {
     setModal(true);
   };
 
-  const handleInputChange = (event) => {
+  const handleInputNameChange = (event) => {
     setName(event.target.value);
+  };
+  const handleInputQuantityChange = (event) => {
+    setQuantity(event.target.value);
   };
 
   const handleClick = () => {
-    create(name);
+    create({ name, quantity });
+    refreshList();
     toggleModal();
   };
 
@@ -48,7 +54,7 @@ function Add() {
                 id="ingredient-name"
                 name="ingredient-name"
                 type="ingredient-name"
-                onChange={handleInputChange}
+                onChange={handleInputNameChange}
                 required
               />
               <label htmlFor="item-quantity">Quantity</label>
@@ -56,6 +62,7 @@ function Add() {
                 id="item-quantity"
                 name="item-quantity"
                 type="item-quantity"
+                onChange={handleInputQuantityChange}
                 required
               />
               <div>
@@ -69,7 +76,11 @@ function Add() {
                   </button>
                 </Link>
                 <Link to="/">
-                  <button type="submit" className="cancel">
+                  <button
+                    type="submit"
+                    className="cancel"
+                    onClick={toggleModal}
+                  >
                     Cancel
                   </button>
                 </Link>
