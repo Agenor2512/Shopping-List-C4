@@ -11,26 +11,29 @@
   background-color: rgb(49, 49, 49, 0.8);
 }
 
-.nav-container > .nav-mobile > .add-button-container {
+main > .add-button-container {
   display: flex;
   justify-content: center;
   align-items: center;
   align-self: flex-end;
+  position: fixed;
+  z-index: 10;
   width: 17vw;
   height: 7.5vh;
+  bottom: 4rem;
   margin: 1rem 1rem;
   border: 0;
   border-radius: 100%;
   background-color: var(--primary-color);
 }
 
-.nav-container > .nav-mobile > .add-button-container > .add-button {
+main > .add-button-container > .add-button {
   background: none;
   border: 0;
   border-radius: 100%;
 }
 
-.nav-container > .nav-mobile > .add-button-container > .add-button > p {
+main > .add-button-container > .add-button > p {
   font-size: 4rem;
   color: white;
 }
@@ -131,7 +134,7 @@
 }
 
 @media only screen and (min-width: 600px) {
-  .nav-container > .nav-mobile > .add-button-container {
+  main > .add-button-container {
     width: 6vw;
     height: 8vh;
   }

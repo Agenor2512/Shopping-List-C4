@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import Search from "../components/Search";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 import "../styles/pages/searchIngredients.css";
 import ExistingIngredient from "../components/ExistingIngredient";
@@ -22,7 +20,6 @@ function SearchIngredients() {
   }, [query]);
   return (
     <div className="all-search-container">
-      <Header />
       <Search inputTools={handleChangeSearchInput} />
       <div className="list-container">
         {ingredients === null ? (
@@ -33,7 +30,6 @@ function SearchIngredients() {
           ))
         )}
       </div>
-      <Footer />
     </div>
   );
 }

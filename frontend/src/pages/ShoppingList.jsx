@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { readById } from "../services/listService";
-
-import Header from "../components/Header";
 import ShoppingListItem from "../components/ShoppingListItem";
-import Footer from "../components/Footer";
 import Loader from "../components/Loader";
 
 import "../styles/pages/shoppingList.css";
+import Add from "../components/Add";
 
 function ShoppingList() {
   const [list, setList] = useState(null);
@@ -22,20 +20,21 @@ function ShoppingList() {
 
   return (
     <>
-      <Header />
+      <div>
+        {list === null ? (
+          <Loader />
+        ) : (
+          list.map((item) => (
+            <ShoppingListItem
+              key={item.name}
+              item={item}
+              refreshList={triggerDataRefresh}
+            />
+          ))
+        )}
+      </div>
 
-      {list === null ? (
-        <Loader />
-      ) : (
-        list.map((item) => (
-          <ShoppingListItem
-            key={item.name}
-            item={item}
-            refreshList={triggerDataRefresh}
-          />
-        ))
-      )}
-      <Footer refreshList={triggerDataRefresh} />
+      <Add refreshList={triggerDataRefresh} />
     </>
   );
 }

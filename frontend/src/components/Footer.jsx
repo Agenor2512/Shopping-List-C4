@@ -3,15 +3,13 @@ import { Link } from "react-router-dom";
 
 import home from "../assets/home.svg";
 import search from "../assets/search.svg";
-import Add from "./Add";
 
 import "../styles/components/footer.css";
 
-function Footer({ refreshList }) {
+function Footer() {
   return (
     <footer className="nav-container">
       <div className="nav-mobile">
-        <Add refreshList={refreshList} />
         <div className="navigation">
           <button type="button">
             <Link to="/">
