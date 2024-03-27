@@ -4,9 +4,15 @@ import React, { useState } from "react";
 import addedIcon from "../assets/added.svg";
 
 import "../styles/components/existingIngredient.css";
+import { create } from "../services/listHasIngredientsService";
 
-function ExistingIngredient({ ingredient: { name } }) {
+function ExistingIngredient({ ingredient: { name, id } }) {
   const [isAdded, setIsAdded] = useState(false);
+
+  const handleClick = () => {
+    create(id);
+    setIsAdded(!isAdded);
+  };
 
   return (
     <div className="existing-ingredient-container">
@@ -16,7 +22,7 @@ function ExistingIngredient({ ingredient: { name } }) {
 
           <button
             type="button"
-            onClick={() => setIsAdded(!isAdded)}
+            onClick={handleClick}
             className={isAdded && "added"}
           >
             {isAdded ? (

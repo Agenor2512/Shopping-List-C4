@@ -11,6 +11,10 @@ router.post("/ingredients", ingredientControllers.add);
 
 router.get("/lists/:id", listControllers.read);
 
+router.post(
+  "/list/:listId/ingredients/:ingredientId",
+  listHasIngredientsControllers.add
+);
 router.put(
   "/list/:listId/ingredients/:ingredientId",
   listHasIngredientsControllers.update

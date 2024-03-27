@@ -9,6 +9,13 @@ const client = axios.create({
   timeout: 60_000,
 });
 
+export const create = (ingredientId) => {
+  client
+    .post(`/list/1/ingredients/${ingredientId}`)
+    .then((response) => console.info(response.data))
+    .catch((error) => console.error(error));
+};
+
 export const modify = ({ listId, ingredientId, quantity }) => {
   return client
     .put(`/list/${listId}/ingredients/${ingredientId}`, {

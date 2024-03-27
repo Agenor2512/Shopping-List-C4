@@ -5,6 +5,16 @@ class ListHasIngredientsManager extends AbstractManager {
     super({ table: "list_has_ingredients" });
   }
 
+  async create({ listId, ingredientId }) {
+    const [result] = await this.database.query(
+      `insert into ${this.table} (list_id, ingredient_id)
+       values (?, ?)`,
+      [listId, ingredientId]
+    );
+
+    return result.insertId;
+  }
+
   async update({ listId, ingredientId, quantity }) {
     const [rows] = await this.database.query(
       `update ${this.table}
