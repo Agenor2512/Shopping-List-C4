@@ -1,7 +1,6 @@
 .header-container {
   display: flex;
   width: 100vw;
-  min-height: 10vh;
   font-family: var(--primary-font);
 }
 

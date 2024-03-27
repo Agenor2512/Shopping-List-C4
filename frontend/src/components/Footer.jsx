@@ -1,16 +1,15 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
 import home from "../assets/home.svg";
 import search from "../assets/search.svg";
-import Add from "./Add";
 
 import "../styles/components/footer.css";
 
 function Footer() {
   return (
-    <div className="nav-container">
+    <footer className="nav-container">
       <div className="nav-mobile">
-        <Add />
         <div className="navigation">
           <button type="button">
             <Link to="/">
@@ -24,7 +23,7 @@ function Footer() {
           </button>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 

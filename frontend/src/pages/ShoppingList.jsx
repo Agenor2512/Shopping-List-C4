@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { readById } from "../services/listService";
-
-import Header from "../components/Header";
 import ShoppingListItem from "../components/ShoppingListItem";
-import Footer from "../components/Footer";
 import Loader from "../components/Loader";
 
 import "../styles/pages/shoppingList.css";
+import Add from "../components/Add";
 
 function ShoppingList() {
   const [list, setList] = useState(null);
@@ -22,8 +20,7 @@ function ShoppingList() {
 
   return (
     <>
-      <Header />
-      <main>
+      <div>
         {list === null ? (
           <Loader />
         ) : (
@@ -35,8 +32,9 @@ function ShoppingList() {
             />
           ))
         )}
-      </main>
-      <Footer />
+      </div>
+
+      <Add refreshList={triggerDataRefresh} />
     </>
   );
 }

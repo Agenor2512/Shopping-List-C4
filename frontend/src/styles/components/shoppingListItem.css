@@ -23,6 +23,17 @@
 }
 
 @media screen and (min-width: 600px) {
+  main > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .item-container {
+    width: 30rem;
+  }
+
   .item-container > .item-card {
     width: 30vw;
   }
