@@ -28,9 +28,9 @@ function Add({ refreshList }) {
   };
 
   const handleClick = () => {
-    create({ name, quantity });
-    refreshList();
-    toggleModal();
+    create({ name, quantity })
+      .then(() => refreshList())
+      .then(() => toggleModal());
   };
 
   const handleSubmit = (event) => {
