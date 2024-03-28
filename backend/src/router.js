@@ -19,5 +19,8 @@ router.put(
   "/list/:listId/ingredients/:ingredientId",
   listHasIngredientsControllers.update
 );
-
+router.delete(
+  "/list/:listId/ingredients/:ingredientId",
+  listHasIngredientsControllers.destroy
+);
 module.exports = router;

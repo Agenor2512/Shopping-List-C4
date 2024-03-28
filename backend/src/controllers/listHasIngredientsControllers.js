@@ -32,4 +32,16 @@ const update = async (request, response, next) => {
   }
 };
 
-module.exports = { add, update };
+const destroy = async (request, response, next) => {
+  const { listId, ingredientId } = request.params;
+
+  try {
+    await tables.list_has_ingredients.delete({ listId, ingredientId });
+
+    response.sendStatus(202);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { add, update, destroy };
