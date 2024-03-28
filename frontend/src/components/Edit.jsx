@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { modify } from "../services/listHasIngredientsService";
+import { destroy, modify } from "../services/listHasIngredientsService";
 
 import editIcon from "../assets/edit.svg";
 import doneIcon from "../assets/done.svg";
@@ -24,10 +24,17 @@ function Edit({ item: { name, quantity, listId, ingredientId }, refreshList }) {
     setIngredientQuantity(event.target.value);
   };
 
+  // Async calls, used then() to return a promise and make refresh functional
+  const handleItemDelete = () => {
+    destroy(ingredientId)
+      .then(() => refreshList())
+      .then(() => toggleModal());
+  };
+
   const handleSubmission = () => {
-    modify({ listId, ingredientId, quantity: ingredientQuantity });
-    refreshList();
-    toggleModal();
+    modify({ listId, ingredientId, quantity: ingredientQuantity })
+      .then(() => refreshList())
+      .then(() => toggleModal());
   };
 
   return (
@@ -57,7 +64,11 @@ function Edit({ item: { name, quantity, listId, ingredientId }, refreshList }) {
                 onChange={handleQuantityChange}
                 required
               />
-              <button type="submit" className="delete">
+              <button
+                type="submit"
+                className="delete"
+                onClick={handleItemDelete}
+              >
                 Delete it
               </button>
               <Link to="/">

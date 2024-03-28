@@ -10,7 +10,7 @@ const client = axios.create({
 });
 
 export const create = (ingredientId) => {
-  client
+  return client
     .post(`/list/1/ingredients/${ingredientId}`)
     .then((response) => console.info(response.data))
     .catch((error) => console.error(error));
@@ -22,5 +22,12 @@ export const modify = ({ listId, ingredientId, quantity }) => {
       quantity,
     })
     .then((response) => response.data)
+    .catch((error) => console.error(error));
+};
+
+export const destroy = (ingredientId) => {
+  return client
+    .delete(`/list/1/ingredients/${ingredientId}`)
+    .then((response) => console.info(response.data))
     .catch((error) => console.error(error));
 };

@@ -26,6 +26,13 @@ class ListHasIngredientsManager extends AbstractManager {
 
     return rows[0];
   }
+
+  async delete({ listId, ingredientId }) {
+    await this.database.query(
+      `delete from ${this.table} where list_id = ? and ingredient_id = ?`,
+      [listId, ingredientId]
+    );
+  }
 }
 
 module.exports = ListHasIngredientsManager;
