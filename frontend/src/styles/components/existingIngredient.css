@@ -1,0 +1,82 @@
+.existing-ingredient-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  font-family: var(--primary-font);
+  color: var(--primary-color);
+}
+
+.existing-ingredient-container > .existing-ingredient-card {
+  width: 90vw;
+  height: 8vh;
+  padding: 1rem;
+  border-radius: 22px;
+  box-shadow: 3px 3px 25px 3px lightgray;
+}
+
+.existing-ingredient-container > .existing-ingredient-card > section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.existing-ingredient-container > .existing-ingredient-card > div {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+}
+
+.existing-ingredient-container > .existing-ingredient-card > section > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  height: 3vh;
+  padding: 0.5rem;
+  font-weight: bold;
+  border: 0;
+  border-radius: 12px;
+  background-color: var(--add-button-color);
+  color: var(--color-black);
+}
+
+.existing-ingredient-container
+  > .existing-ingredient-card
+  > section
+  > button.added {
+  background: none;
+}
+
+.existing-ingredient-container
+  > .existing-ingredient-card
+  > section
+  > button.added
+  > img {
+  width: 10vw;
+  height: 3vh;
+}
+
+@media screen and (min-width: 600px) {
+  .existing-ingredient-container > .existing-ingredient-card {
+    width: 30vw;
+  }
+
+  .existing-ingredient-container
+    > .existing-ingredient-card
+    > section
+    > button {
+    width: 5vw;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .existing-ingredient-container
+    > .existing-ingredient-card
+    > section
+    > button.added
+    > img {
+    width: 30vw;
+    height: 4vh;
+  }
+}

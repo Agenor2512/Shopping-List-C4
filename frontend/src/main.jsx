@@ -4,11 +4,22 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
+import ShoppingList from "./pages/ShoppingList";
+import SearchIngredients from "./pages/SearchIngredients";
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <ShoppingList />,
+      },
+      {
+        path: "/search",
+        element: <SearchIngredients />,
+      },
+    ],
   },
 ]);
 

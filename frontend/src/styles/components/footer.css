@@ -1,0 +1,37 @@
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100vw;
+}
+
+.nav-container > .nav-mobile {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-container > .nav-mobile > .navigation {
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+  height: 7vh;
+  border-radius: 20px 20px 0 0;
+  background-color: var(--primary-color);
+}
+
+.nav-container > .nav-mobile > .navigation > button {
+  width: 20vw;
+  margin-left: 5.5rem;
+  background: none;
+  border: 0;
+}
+
+.nav-container > .nav-mobile > .navigation > button > a > img {
+  width: 10vw;
+}
+
+@media screen and (min-width: 600px) {
+  .nav-container > .nav-mobile > .navigation {
+    display: none;
+  }
+}

@@ -2,22 +2,25 @@ const express = require("express");
 
 const router = express.Router();
 
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
+const ingredientControllers = require("./controllers/ingredientControllers");
+const listControllers = require("./controllers/listControllers");
+const listHasIngredientsControllers = require("./controllers/listHasIngredientsControllers");
 
-// Import itemControllers module for handling item-related operations
-const itemControllers = require("./controllers/itemControllers");
+router.get("/ingredients", ingredientControllers.search);
+router.post("/ingredients", ingredientControllers.add);
 
-// Route to get a list of items
-router.get("/items", itemControllers.browse);
+router.get("/lists/:id", listControllers.read);
 
-// Route to get a specific item by ID
-router.get("/items/:id", itemControllers.read);
-
-// Route to add a new item
-router.post("/items", itemControllers.add);
-
-/* ************************************************************************* */
-
+router.post(
+  "/list/:listId/ingredients/:ingredientId",
+  listHasIngredientsControllers.add
+);
+router.put(
+  "/list/:listId/ingredients/:ingredientId",
+  listHasIngredientsControllers.update
+);
+router.delete(
+  "/list/:listId/ingredients/:ingredientId",
+  listHasIngredientsControllers.destroy
+);
 module.exports = router;
