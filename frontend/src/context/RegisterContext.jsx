@@ -8,6 +8,7 @@ export function RegisterProvider({ children }) {
     name: "",
     email: "",
     password: "",
+    checkPassword: "",
   });
 
   return (
