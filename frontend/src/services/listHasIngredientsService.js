@@ -11,14 +11,14 @@ const client = axios.create({
 
 export const create = (ingredientId) => {
   return client
-    .post(`/list/1/ingredients/${ingredientId}`)
+    .post(`/lists/1/ingredients/${ingredientId}`)
     .then((response) => console.info(response.data))
     .catch((error) => console.error(error));
 };
 
 export const modify = ({ listId, ingredientId, quantity }) => {
   return client
-    .put(`/list/${listId}/ingredients/${ingredientId}`, {
+    .put(`/lists/${listId}/ingredients/${ingredientId}`, {
       quantity,
     })
     .then((response) => response.data)
@@ -27,7 +27,7 @@ export const modify = ({ listId, ingredientId, quantity }) => {
 
 export const destroy = (ingredientId) => {
   return client
-    .delete(`/list/1/ingredients/${ingredientId}`)
+    .delete(`/lists/1/ingredients/${ingredientId}`)
     .then((response) => console.info(response.data))
     .catch((error) => console.error(error));
 };

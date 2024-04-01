@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RegisterProvider } from "./context/RegisterContext";
 
 import App from "./App";
-import ShoppingList from "./pages/ShoppingList";
 import SearchIngredients from "./pages/SearchIngredients";
+import Register from "./pages/Register";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <ShoppingList />,
+        element: <Register />,
       },
       {
         path: "/search",
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <React.StrictMode>
+  <RegisterProvider>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </RegisterProvider>
 );
