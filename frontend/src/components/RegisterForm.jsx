@@ -135,7 +135,7 @@ function RegisterForm() {
           Sign up
         </button>
         <p>
-          Already have an account ? <Link to="/">Log in</Link>
+          Already have an account ? <Link to="/login">Log in</Link>
         </p>
       </form>
     </div>

@@ -7,6 +7,7 @@ import { RegisterProvider } from "./context/RegisterContext";
 import App from "./App";
 import SearchIngredients from "./pages/SearchIngredients";
 import Register from "./pages/Register";
+import LoginForm from "./components/LoginForm";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Register />,
+      },
+      {
+        path: "/login",
+        element: <LoginForm />,
       },
       {
         path: "/search",
