@@ -11,7 +11,14 @@ const client = axios.create({
 
 export const addUser = ({ name, email, password }) => {
   client
-    .post(`/register`, { name, email, password })
+    .post("/register", { name, email, password })
+    .then((response) => console.info(response.data))
+    .catch((error) => console.error(error));
+};
+
+export const loginUser = ({ email, password }) => {
+  client
+    .post("/login", { email, password })
     .then((response) => console.info(response.data))
     .catch((error) => console.error(error));
 };

@@ -1,27 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+import AppContext from "../context/AppContext";
 import LoginContext from "../context/LoginContext";
 
 import logo from "../assets/logo.png";
 
 import "../styles/components/loginForm.css";
+import { loginUser } from "../services/userService";
 
 function LoginForm() {
+  const { setToDisplay } = useContext(AppContext);
   const { loginInformations, setLoginInformations } = useContext(LoginContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setToDisplay(false);
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
-  const handleLogin = ({ target: { name, value } }) => {
+  const handleLoginInformations = ({ target: { name, value } }) => {
     setLoginInformations({
       ...loginInformations,
       [name]: value,
     });
+  };
+
+  const loginThenRedirect = () => {
+    loginUser(loginInformations);
     navigate("/shoppinglist");
   };
+
   return (
     <div className="login-form-container">
       <div>
@@ -36,7 +48,7 @@ function LoginForm() {
           name="email"
           type="email"
           placeholder="example@gmail.com"
-          onChange={(event) => handleLogin(event)}
+          onChange={(event) => handleLoginInformations(event)}
         />
         <label htmlFor="password">PASSWORD</label>
         <input
@@ -44,9 +56,11 @@ function LoginForm() {
           name="password"
           type="password"
           placeholder="********"
-          onChange={(event) => handleLogin(event)}
+          onChange={(event) => handleLoginInformations(event)}
         />
-        <button type="submit">Log in</button>
+        <button type="submit" onClick={loginThenRedirect}>
+          Log in
+        </button>
         <p>
           or <Link to="/register">Create an account</Link>
         </p>

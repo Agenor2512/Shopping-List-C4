@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { RegisterProvider } from "./context/RegisterContext";
+import { AppProvider } from "./context/AppContext";
 
 import App from "./App";
 import SearchIngredients from "./pages/SearchIngredients";
@@ -13,6 +14,7 @@ import ShoppingList from "./pages/ShoppingList";
 
 const router = createBrowserRouter([
   {
+    path: "/",
     element: <App />,
     children: [
       {
@@ -39,9 +41,11 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <RegisterProvider>
-    <LoginProvider>
-      <RouterProvider router={router} />
-    </LoginProvider>
-  </RegisterProvider>
+  <AppProvider>
+    <RegisterProvider>
+      <LoginProvider>
+        <RouterProvider router={router} />
+      </LoginProvider>
+    </RegisterProvider>
+  </AppProvider>
 );
