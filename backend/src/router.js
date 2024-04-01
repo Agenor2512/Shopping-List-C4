@@ -8,9 +8,11 @@ const listControllers = require("./controllers/listControllers");
 const listHasIngredientsControllers = require("./controllers/listHasIngredientsControllers");
 
 const authenticationService = require("./services/authentication");
+const userValidator = require("./middlewares/userValidator");
 
 router.post(
   "/register",
+  userValidator.validateUser,
   authenticationService.hashPassword,
   userControllers.add
 );
