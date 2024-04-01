@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { addUser } from "../services/userService";
@@ -11,10 +11,17 @@ import "../styles/components/registerForm.css";
 
 function RegisterForm() {
   const { userInformations, setUserInformations } = useContext(RegisterContext);
+  const [incorrectFields, setIncorrectFields] = useState([]);
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
+  };
+
+  const removeIncorrectFields = (name) => {
+    const newIncorrectFields = incorrectFields.slice();
+    newIncorrectFields.splice(newIncorrectFields.indexOf(name), 1);
+    setIncorrectFields(newIncorrectFields);
   };
 
   const handleUserInformations = ({ target: { name, value } }) => {
@@ -22,11 +29,55 @@ function RegisterForm() {
       ...userInformations,
       [name]: value,
     });
+    removeIncorrectFields(name);
+  };
+
+  const validateForm = () => {
+    let result = true;
+    const invalidFields = [];
+
+    if (userInformations.name.length < 3) {
+      invalidFields.push("name");
+      result = false;
+    }
+
+    if (
+      !userInformations.email.match(
+        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$/
+      )
+    ) {
+      invalidFields.push("email");
+      result = false;
+    }
+
+    if (
+      !userInformations.password.match(
+        /^(?=.*[*#])[a-zA-Z0-9À-ÖØ-öø-ÿ*#]{8,15}$/
+      )
+    ) {
+      invalidFields.push("password");
+      result = false;
+    }
+
+    if (
+      userInformations.password !== userInformations.checkPassword ||
+      userInformations.checkPassword.length === 0
+    ) {
+      invalidFields.push("checkPassword");
+      result = false;
+    }
+
+    setIncorrectFields(invalidFields);
+    return result;
   };
 
   const registerUser = () => {
-    addUser(userInformations);
-    navigate("/");
+    if (validateForm()) {
+      addUser(userInformations);
+      navigate("/");
+    } else {
+      console.info("Invalid form");
+    }
   };
 
   return (
@@ -42,6 +93,8 @@ function RegisterForm() {
           name="name"
           type="text"
           placeholder="John Doe"
+          required
+          className={incorrectFields.includes("name") ? "incorrect-field" : ""}
           onChange={(event) => handleUserInformations(event)}
         />
         <label htmlFor="email">EMAIL</label>
@@ -50,6 +103,8 @@ function RegisterForm() {
           name="email"
           type="email"
           placeholder="example@gmail.com"
+          required
+          className={incorrectFields.includes("email") ? "incorrect-field" : ""}
           onChange={(event) => handleUserInformations(event)}
         />
         <label htmlFor="password">PASSWORD</label>
@@ -58,14 +113,23 @@ function RegisterForm() {
           name="password"
           type="password"
           placeholder="********"
+          required
+          className={
+            incorrectFields.includes("password") ? "incorrect-field" : ""
+          }
           onChange={(event) => handleUserInformations(event)}
         />
         <label htmlFor="verify-password">VERIFY PASSWORD</label>
         <input
           id="verify-password"
-          name="verify-password"
+          name="checkPassword"
           type="password"
           placeholder="********"
+          required
+          className={
+            incorrectFields.includes("checkPassword") ? "incorrect-field" : ""
+          }
+          onChange={(event) => handleUserInformations(event)}
         />
         <button type="submit" onClick={registerUser}>
           Sign up
