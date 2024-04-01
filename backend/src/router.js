@@ -2,9 +2,18 @@ const express = require("express");
 
 const router = express.Router();
 
+const userControllers = require("./controllers/userControllers");
 const ingredientControllers = require("./controllers/ingredientControllers");
 const listControllers = require("./controllers/listControllers");
 const listHasIngredientsControllers = require("./controllers/listHasIngredientsControllers");
+
+const authenticationService = require("./services/authentication");
+
+router.post(
+  "/register",
+  authenticationService.hashPassword,
+  userControllers.add
+);
 
 router.get("/ingredients", ingredientControllers.search);
 router.post("/ingredients", ingredientControllers.add);
