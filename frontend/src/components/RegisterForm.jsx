@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import { addUser } from "../services/userService";
 
 import RegisterContext from "../context/RegisterContext";
 
@@ -9,12 +11,18 @@ import "../styles/components/registerForm.css";
 
 function RegisterForm() {
   const { userInformations, setUserInformations } = useContext(RegisterContext);
+  const navigate = useNavigate();
 
   const handleUserInformations = ({ target: { name, value } }) => {
     setUserInformations({
       ...userInformations,
       [name]: value,
     });
+  };
+
+  const registerUser = () => {
+    addUser(userInformations);
+    navigate("/");
   };
 
   return (
@@ -55,7 +63,9 @@ function RegisterForm() {
           type="password"
           placeholder="********"
         />
-        <button type="submit">Sign up</button>
+        <button type="submit" onClick={registerUser}>
+          Sign up
+        </button>
         <p>
           Already have an account ? <Link to="/">Log in</Link>
         </p>

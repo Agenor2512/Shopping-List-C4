@@ -21,15 +21,15 @@ router.post("/ingredients", ingredientControllers.add);
 router.get("/lists/:id", listControllers.read);
 
 router.post(
-  "/list/:listId/ingredients/:ingredientId",
+  "/lists/:listId/ingredients/:ingredientId",
   listHasIngredientsControllers.add
 );
 router.put(
-  "/list/:listId/ingredients/:ingredientId",
+  "/lists/:listId/ingredients/:ingredientId",
   listHasIngredientsControllers.update
 );
 router.delete(
-  "/list/:listId/ingredients/:ingredientId",
+  "/lists/:listId/ingredients/:ingredientId",
   listHasIngredientsControllers.destroy
 );
 module.exports = router;
