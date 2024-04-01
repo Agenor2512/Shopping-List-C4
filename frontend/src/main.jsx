@@ -8,19 +8,26 @@ import App from "./App";
 import SearchIngredients from "./pages/SearchIngredients";
 import Register from "./pages/Register";
 import LoginForm from "./components/LoginForm";
+import { LoginProvider } from "./context/LoginContext";
+import ShoppingList from "./pages/ShoppingList";
 
 const router = createBrowserRouter([
   {
     element: <App />,
     children: [
       {
-        path: "/",
+        path: "/register",
         element: <Register />,
       },
       {
         path: "/login",
         element: <LoginForm />,
       },
+      {
+        path: "/shoppinglist",
+        element: <ShoppingList />,
+      },
+
       {
         path: "/search",
         element: <SearchIngredients />,
@@ -33,6 +40,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <RegisterProvider>
-    <RouterProvider router={router} />
+    <LoginProvider>
+      <RouterProvider router={router} />
+    </LoginProvider>
   </RegisterProvider>
 );
