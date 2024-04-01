@@ -86,7 +86,7 @@ function RegisterForm() {
         <img src={backward} alt="backward arrow" />
       </button>
       <form onSubmit={(event) => handleSubmit(event)}>
-        <h1>Create new Account</h1>
+        <h1>Create an Account</h1>
         <label htmlFor="email">NAME</label>
         <input
           id="name"
