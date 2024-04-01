@@ -13,6 +13,10 @@ function RegisterForm() {
   const { userInformations, setUserInformations } = useContext(RegisterContext);
   const navigate = useNavigate();
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
   const handleUserInformations = ({ target: { name, value } }) => {
     setUserInformations({
       ...userInformations,
@@ -30,7 +34,7 @@ function RegisterForm() {
       <button type="button" className="backward">
         <img src={backward} alt="backward arrow" />
       </button>
-      <form>
+      <form onSubmit={(event) => handleSubmit(event)}>
         <h1>Create new Account</h1>
         <label htmlFor="email">NAME</label>
         <input
