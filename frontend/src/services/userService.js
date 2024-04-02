@@ -18,7 +18,7 @@ export const addUser = ({ name, email, password }) => {
 
 export const loginUser = ({ email, password }) => {
   client
-    .post("/login", { email, password })
+    .post("/login", { email, password }, { withCredentials: true })
     .then((response) => console.info(response.data))
     .catch((error) => console.error(error));
 };

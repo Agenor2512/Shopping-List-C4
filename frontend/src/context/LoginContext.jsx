@@ -1,13 +1,18 @@
 /* eslint-disable react/prop-types */
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 const LoginContext = createContext();
 
 export function LoginProvider({ children }) {
   const [loginInformations, setLoginInformations] = useState({
-    email: "",
-    password: "",
+    id: localStorage.getItem("id"),
+    email: localStorage.getItem("email"),
   });
+
+  useEffect(() => {
+    localStorage.setItem("id", loginInformations.id);
+    localStorage.setItem("email", loginInformations.email);
+  }, [loginInformations]);
 
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values

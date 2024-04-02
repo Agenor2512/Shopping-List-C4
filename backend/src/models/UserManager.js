@@ -26,7 +26,7 @@ class UserManager extends AbstractManager {
        where email = ?`,
       [email]
     );
-    return rows;
+    return rows[0];
   }
 }
 

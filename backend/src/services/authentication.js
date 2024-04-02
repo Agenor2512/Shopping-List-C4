@@ -20,13 +20,13 @@ const hashPassword = async (request, _, next) => {
 
 const checkEmailAndPassword = async (request, response, next) => {
   try {
-    const login = await tables.user.readByEmailWithPassword(request.body.email);
+    const user = await tables.user.readByEmailWithPassword(request.body.email);
 
-    if (login.length !== 0) {
+    if (user) {
       request.user = {
-        id: login[0].id,
-        email: login[0].email,
-        password: login[0].password,
+        id: user.id,
+        email: user.email,
+        password: user.password,
       };
       next();
     } else {
