@@ -26,7 +26,7 @@ const validateUser = async (req, res, next) => {
 
   if (error) {
     console.error(error);
-    res.sendStatus(401);
+    res.sendStatus(400);
   } else {
     console.info("Validation succeded:", value);
     next();

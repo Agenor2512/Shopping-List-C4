@@ -33,8 +33,10 @@ create table list_has_ingredients
 );
 
 insert into user (id, name, email, password)
-values ('2de1feec-a19a-4f16-9226-af782acdab42', 'John Doe', 'johnd@gmail.com', 'shoppinglist'),
-       ('2de1feec-a19a-4f16-9226-af782acdab47', 'Sally Dupuis', 'sally@gmail.com', 'shoppinglist');
+values ('2de1feec-a19a-4f16-9226-af782acdab42', 'John Doe', 'johnd@gmail.com',
+        '$argon2id$v=19$m=19456,t=2,p=1$zixnREIu61zKNPFU+axXaw$Bfk7uGicfG1c35KK1a2EkfysTWqEqZqaavqy265ms6k'),
+       ('2de1feec-a19a-4f16-9226-af782acdab47', 'Sally Dupuis', 'sally@gmail.com',
+        '$argon2id$v=19$m=19456,t=2,p=1$zixnREIu61zKNPFU+axXaw$Bfk7uGicfG1c35KK1a2EkfysTWqEqZqaavqy265ms6k');
 
 
 insert into ingredient (id, name)

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { addUser } from "../services/userService";
@@ -8,11 +8,17 @@ import RegisterContext from "../context/RegisterContext";
 import backward from "../assets/arrow_back.svg";
 
 import "../styles/components/registerForm.css";
+import AppContext from "../context/AppContext";
 
 function RegisterForm() {
+  const { setToDisplay } = useContext(AppContext);
   const { userInformations, setUserInformations } = useContext(RegisterContext);
   const [incorrectFields, setIncorrectFields] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setToDisplay(false);
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();

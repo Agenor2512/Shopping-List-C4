@@ -3,24 +3,33 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { RegisterProvider } from "./context/RegisterContext";
+import { AppProvider } from "./context/AppContext";
 
 import App from "./App";
 import SearchIngredients from "./pages/SearchIngredients";
 import Register from "./pages/Register";
 import LoginForm from "./components/LoginForm";
+import { LoginProvider } from "./context/LoginContext";
+import ShoppingList from "./pages/ShoppingList";
 
 const router = createBrowserRouter([
   {
+    path: "/",
     element: <App />,
     children: [
       {
-        path: "/",
+        path: "/register",
         element: <Register />,
       },
       {
         path: "/login",
         element: <LoginForm />,
       },
+      {
+        path: "/shoppinglist",
+        element: <ShoppingList />,
+      },
+
       {
         path: "/search",
         element: <SearchIngredients />,
@@ -32,7 +41,11 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <RegisterProvider>
-    <RouterProvider router={router} />
-  </RegisterProvider>
+  <AppProvider>
+    <RegisterProvider>
+      <LoginProvider>
+        <RouterProvider router={router} />
+      </LoginProvider>
+    </RegisterProvider>
+  </AppProvider>
 );
