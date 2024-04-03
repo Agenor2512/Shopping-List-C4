@@ -17,7 +17,7 @@ function Footer() {
       <div className="nav-mobile">
         <div className="navigation">
           <button type="button">
-            <Link to="/">
+            <Link to="/shoppinglist">
               <img src={home} alt="home page button" />
             </Link>
           </button>
