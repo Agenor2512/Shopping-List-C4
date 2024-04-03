@@ -1,6 +1,7 @@
 /* eslint-disable no-promise-executor-return */
 /* eslint-disable import/prefer-default-export */
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const baseURL = import.meta.env.VITE_BACKEND_URL;
 
@@ -10,8 +11,14 @@ const client = axios.create({
 });
 
 export const readById = () => {
+  const token = Cookies.get("authentication"); // TODO Récupérer le token dans les cookies...
+  console.info(token);
   return client
-    .get(`/lists`)
+    .get(`/lists`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
     .then((response) => response.data)
     .catch((error) => console.error(error));
 };
