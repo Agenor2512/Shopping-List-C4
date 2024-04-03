@@ -1,6 +1,6 @@
 const Joi = require("joi");
 
-const validateUser = async (req, res, next) => {
+const validateUser = async (request, response, next) => {
   const userSchema = Joi.object({
     name: Joi.string()
       .pattern(/^[a-zA-Z0-9À-ÖØ-öø-ÿ-?\s]+$/)
@@ -22,11 +22,11 @@ const validateUser = async (req, res, next) => {
     passwordCheck: Joi.ref("password"),
   });
 
-  const { error, value } = userSchema.validate(req.body);
+  const { error, value } = userSchema.validate(request.body);
 
   if (error) {
     console.error(error);
-    res.sendStatus(400);
+    response.sendStatus(400);
   } else {
     console.info("Validation succeded:", value);
     next();

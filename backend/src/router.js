@@ -10,6 +10,7 @@ const listHasIngredientsControllers = require("./controllers/listHasIngredientsC
 
 const authenticationService = require("./services/authentication");
 const userValidator = require("./middlewares/userValidator");
+const authenticationValidator = require("./middlewares/authenticationValidator");
 
 // Register
 router.post(
@@ -31,7 +32,11 @@ router.get("/ingredients", ingredientControllers.search);
 router.post("/ingredients", ingredientControllers.add);
 
 // Lists part
-router.get("/lists/:id", listControllers.read);
+router.get(
+  "/lists",
+  authenticationValidator.validateAuthentication,
+  listControllers.read
+);
 
 router.post(
   "/lists/:listId/ingredients/:ingredientId",

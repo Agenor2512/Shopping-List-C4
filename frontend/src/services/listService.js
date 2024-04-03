@@ -11,7 +11,7 @@ const client = axios.create({
 
 export const readById = () => {
   return client
-    .get(`lists/2de1feec-a19a-4f16-9226-af782acdab42`)
+    .get(`/lists`)
     .then((response) => response.data)
     .catch((error) => console.error(error));
 };
