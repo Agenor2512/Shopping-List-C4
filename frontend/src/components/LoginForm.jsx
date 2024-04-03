@@ -30,6 +30,7 @@ function LoginForm() {
   };
 
   const loginThenRedirect = () => {
+    console.info(loginInformations);
     loginUser(loginInformations);
     navigate("/shoppinglist");
   };

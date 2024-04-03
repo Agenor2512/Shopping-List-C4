@@ -17,6 +17,8 @@ const login = async (request, response, next) => {
         process.env.APP_SECRET
       );
 
+      console.info(token);
+
       response
         .cookie("authentication", token, {
           httpOnly: true,
