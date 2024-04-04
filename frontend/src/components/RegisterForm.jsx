@@ -5,8 +5,6 @@ import { addUser } from "../services/userService";
 
 import RegisterContext from "../context/RegisterContext";
 
-import backward from "../assets/arrow_back.svg";
-
 import "../styles/components/registerForm.css";
 import AppContext from "../context/AppContext";
 
@@ -88,9 +86,6 @@ function RegisterForm() {
 
   return (
     <div className="register-form-container">
-      <button type="button" className="backward">
-        <img src={backward} alt="backward arrow" />
-      </button>
       <form onSubmit={(event) => handleSubmit(event)}>
         <h1>Create an Account</h1>
         <label htmlFor="email">NAME</label>
