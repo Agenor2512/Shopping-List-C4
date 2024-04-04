@@ -5,12 +5,10 @@ const LoginContext = createContext();
 
 export function LoginProvider({ children }) {
   const [loginInformations, setLoginInformations] = useState({
-    id: localStorage.getItem("id"),
     email: localStorage.getItem("email"),
   });
 
   useEffect(() => {
-    localStorage.setItem("id", loginInformations.id);
     localStorage.setItem("email", loginInformations.email);
   }, [loginInformations]);
 

@@ -11,8 +11,8 @@ const client = axios.create({
 });
 
 export const readById = () => {
-  const token = Cookies.get("authentication"); // TODO Récupérer le token dans les cookies...
-  console.info(token);
+  const token = Cookies.get("authentication");
+  console.info("TOKEN :", token);
   return client
     .get(`/lists`, {
       headers: {

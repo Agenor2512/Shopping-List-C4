@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const validateAuthentication = async (request, response, next) => {
   // Retrieve bearer token authentication
   const bearer = request.get("Authorization");
-  const token = bearer.split("Bearer ")[1];
+  const token = bearer.split("Bearer")[1];
   console.info("jwt :", token);
 
   try {

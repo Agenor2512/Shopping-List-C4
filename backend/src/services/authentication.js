@@ -24,7 +24,6 @@ const checkEmailAndPassword = async (request, response, next) => {
 
     if (user) {
       request.user = {
-        id: user.id,
         email: user.email,
         password: user.password,
       };
