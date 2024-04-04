@@ -80,7 +80,7 @@ function RegisterForm() {
   const registerUser = () => {
     if (validateForm()) {
       addUser(userInformations);
-      navigate("/");
+      navigate("/login");
     } else {
       console.info("Invalid form");
     }

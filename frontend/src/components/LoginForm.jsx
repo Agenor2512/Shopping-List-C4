@@ -63,7 +63,7 @@ function LoginForm() {
           Log in
         </button>
         <p>
-          or <Link to="/register">Create an account</Link>
+          or <Link to="/">Create an account</Link>
         </p>
       </form>
     </div>
