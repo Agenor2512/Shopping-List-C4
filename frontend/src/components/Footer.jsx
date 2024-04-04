@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+
+import AppContext from "../context/AppContext";
 
 import home from "../assets/home.svg";
 import search from "../assets/search.svg";
@@ -7,12 +10,14 @@ import search from "../assets/search.svg";
 import "../styles/components/footer.css";
 
 function Footer() {
+  const { toDisplay } = useContext(AppContext);
+
   return (
-    <footer className="nav-container">
+    <footer className={toDisplay ? "nav-container" : "disable"}>
       <div className="nav-mobile">
         <div className="navigation">
           <button type="button">
-            <Link to="/">
+            <Link to="/shoppinglist">
               <img src={home} alt="home page button" />
             </Link>
           </button>

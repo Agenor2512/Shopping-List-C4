@@ -4,6 +4,10 @@
   font-family: var(--primary-font);
 }
 
+.disable {
+  display: none;
+}
+
 .header-container > div {
   display: flex;
   flex-direction: column;

@@ -66,7 +66,7 @@ function Add({ refreshList }) {
                 required
               />
               <div>
-                <Link to="/">
+                <Link to="/shoppinglist">
                   <button
                     type="submit"
                     className="validate"
@@ -75,7 +75,7 @@ function Add({ refreshList }) {
                     Add it !
                   </button>
                 </Link>
-                <Link to="/">
+                <Link to="/shoppinglist">
                   <button
                     type="submit"
                     className="cancel"

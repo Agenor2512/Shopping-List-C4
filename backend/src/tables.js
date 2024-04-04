@@ -3,11 +3,13 @@
 /* ************************************************************************* */
 
 // Import the manager modules responsible for handling data operations on the tables
+const UserManager = require("./models/UserManager");
 const IngredientManager = require("./models/IngredientManager");
 const ListManager = require("./models/ListManager");
 const ListHasIngredientManager = require("./models/ListHasIngredientsManager");
 
 const managers = [
+  UserManager,
   IngredientManager,
   ListManager,
   ListHasIngredientManager,

@@ -71,7 +71,7 @@ function Edit({ item: { name, quantity, listId, ingredientId }, refreshList }) {
               >
                 Delete it
               </button>
-              <Link to="/">
+              <Link to="/shoppinglist">
                 <button
                   type="submit"
                   className="validate"
