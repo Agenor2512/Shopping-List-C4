@@ -14,11 +14,10 @@ import ShoppingList from "./pages/ShoppingList";
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <App />,
     children: [
       {
-        path: "/register",
+        path: "/",
         element: <Register />,
       },
       {
