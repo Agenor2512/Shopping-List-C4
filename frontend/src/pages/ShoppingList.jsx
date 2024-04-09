@@ -31,7 +31,7 @@ function ShoppingList() {
         ) : (
           list.map((item) => (
             <ShoppingListItem
-              key={item.name}
+              key={item.id}
               item={item}
               refreshList={triggerDataRefresh}
             />
